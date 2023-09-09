@@ -1,0 +1,132 @@
+This directory contains PDB files obtained from ZINC (http://zinc.docking.org/) for use as examples.
+The following commands can be used to test the various click-chemistry reactions performed by
+AutoClickChem:
+
+
+Epoxide + (Alcohol or Thiol)
+----------------------------
+python ../autoclickchem.py -reactants1 ./epoxide/ -reactants2 ./alcohol/ -output_dir ./epoxide_alcohol_opening_output/ -all_reactions +epoxide_alcohol_opening
+python ../autoclickchem.py -reactants1 ./epoxide/ -reactants2 ./thiol/ -output_dir ./epoxide_thiol_opening_output/ -all_reactions +epoxide_thiol_opening
+
+
+Alkene Oxidized to Epoxide
+--------------------------
+python ../autoclickchem.py -reactants1 ./alkene/ -output_dir ./alkene_to_epoxide_output/ -all_reactions +alkene_to_epoxide
+
+
+Sulfonyl Azide + Thio Acid
+--------------------------
+ERROR
+python ../autoclickchem.py -reactants1 ./sulfonyl_azide/ -reactants2 ./thio_acid/ -output_dir ./sulfonyl_azide_and_thio_acid_output/ -all_reactions +sulfonyl_azide_and_thio_acid
+
+
+Alkyne + Azide
+--------------
+python ../autoclickchem.py -reactants1 ./alkyne/ -reactants2 ./azide/ -output_dir ./azide_and_alkyne_to_azole_output/ -all_reactions +azide_and_alkyne_to_azole
+
+
+Halide to Azide or Cyanide
+--------------------------
+ERROR
+python ../autoclickchem.py -reactants1 ./halide/ -output_dir ./halide_to_azide_output/ -all_reactions +halide_to_azide
+ERROR
+python ../autoclickchem.py -reactants1 ./halide/ -output_dir ./halide_to_cyanide_output/ -all_reactions +halide_to_cyanide
+
+
+Alcohol to Azide or Cyanide
+---------------------------
+python ../autoclickchem.py -reactants1 ./alcohol/ -output_dir ./alcohol_to_azide_output/ -all_reactions +alcohol_to_azide
+python ../autoclickchem.py -reactants1 ./alcohol/ -output_dir ./alcohol_to_cyanide_output/ -all_reactions +alcohol_to_cyanide
+
+
+Primary Amine Oxidized to an Azide, Isocyanate, or Isothiocyanate
+-----------------------------------------------------------------
+python ../autoclickchem.py -reactants1 ./amine/ -output_dir ./amine_to_azide_output/ -all_reactions +amine_to_azide
+python ../autoclickchem.py -reactants1 ./amine/ -output_dir ./amine_to_isocyanate_output/ -all_reactions +amine_to_isocyanate
+python ../autoclickchem.py -reactants1 ./amine/ -output_dir ./amine_to_isothiocyanate_output/ -all_reactions +amine_to_isothiocyanate
+
+
+Azide Reduced to Amine
+----------------------
+python ../autoclickchem.py -reactants1 ./azide/ -output_dir ./azide_to_amine_output/ -all_reactions +azide_to_amine
+
+
+Chloroformate + Amine
+---------------------
+python ../autoclickchem.py -reactants1 ./chloroformate/ -reactants2 ./amine/ -output_dir ./chloroformate_and_amine_to_carbamate_output/ -all_reactions +chloroformate_and_amine_to_carbamate
+
+
+Carboxylate + Amine
+-------------------
+python ../autoclickchem.py -reactants1 ./carboxylate/ -reactants2 ./amine/ -output_dir ./carboxylate_and_amine_to_amide_output/ -all_reactions +carboxylate_and_amine_to_amide
+
+
+Carboxylate + (Alcohol or Thiol)
+--------------------------------
+python ../autoclickchem.py -reactants1 ./carboxylate/ -reactants2 ./alcohol/ -output_dir ./carboxylate_and_alcohol_to_ester_output/ -all_reactions +carboxylate_and_alcohol_to_ester
+python ../autoclickchem.py -reactants1 ./carboxylate/ -reactants2 ./thiol/ -output_dir ./carboxylate_and_thiol_to_thioester_output/ -all_reactions +carboxylate_and_thiol_to_thioester
+
+
+Carboxylate to Azide or Cyanide
+-------------------------------
+python ../autoclickchem.py -reactants1 ./carboxylate/ -output_dir ./carboxylate_to_azide_output/ -all_reactions +carboxylate_to_azide
+python ../autoclickchem.py -reactants1 ./carboxylate/ -output_dir ./carboxylate_to_cyanide_output/ -all_reactions +carboxylate_to_cyanide
+
+
+Acyl Halide + Amine
+-------------------
+python ../autoclickchem.py -reactants1 ./acyl_halide/ -reactants2 ./amine/ -output_dir ./acyl_halide_and_amine_to_amide_output/ -all_reactions +acyl_halide_and_amine_to_amide
+
+
+Acyl Halide + (Alcohol or Thiol)
+--------------------------------
+python ../autoclickchem.py -reactants1 ./acyl_halide/ -reactants2 ./alcohol/ -output_dir ./acyl_halide_and_alcohol_to_ester_output/ -all_reactions +acyl_halide_and_alcohol_to_ester
+python ../autoclickchem.py -reactants1 ./acyl_halide/ -reactants2 ./thiol/ -output_dir ./acyl_halide_and_thiol_to_thioester_output/ -all_reactions +acyl_halide_and_thiol_to_thioester
+
+
+Acyl Halide to Azide or Cyanide
+-------------------------------
+python ../autoclickchem.py -reactants1 ./acyl_halide/ -output_dir ./acyl_halide_to_azide_output/ -all_reactions +acyl_halide_to_azide
+python ../autoclickchem.py -reactants1 ./acyl_halide/ -output_dir ./acyl_halide_to_cyanide_output/ -all_reactions +acyl_halide_to_cyanide
+
+
+Ester + Amine
+-------------
+python ../autoclickchem.py -reactants1 ./ester/ -reactants2 ./amine/ -output_dir ./ester_and_amine_to_amide_output/ -all_reactions +ester_and_amine_to_amide
+
+
+Ester + (Alcohol or Thiol)
+--------------------------
+python ../autoclickchem.py -reactants1 ./ester/ -reactants2 ./alcohol/ -output_dir ./ester_and_alcohol_to_ester_output/ -all_reactions +ester_and_alcohol_to_ester
+python ../autoclickchem.py -reactants1 ./ester/ -reactants2 ./thiol/ -output_dir ./ester_and_thiol_to_thioester_output/ -all_reactions +ester_and_thiol_to_thioester
+
+
+Acid Anhydride + Amine
+----------------------
+python ../autoclickchem.py -reactants1 ./acid_anhydride/ -reactants2 ./amine/ -output_dir ./acid_anhydride_and_amine_to_amide_output/ -all_reactions +acid_anhydride_and_amine_to_amide
+
+
+Acid Anhydride + (Alcohol or Thiol)
+-----------------------------------
+python ../autoclickchem.py -reactants1 ./acid_anhydride/ -reactants2 ./alcohol/ -output_dir ./acid_anhydride_and_alcohol_to_ester_output/ -all_reactions +acid_anhydride_and_alcohol_to_ester
+python ../autoclickchem.py -reactants1 ./acid_anhydride/ -reactants2 ./thiol/ -output_dir ./acid_anhydride_and_thiol_to_thioester_output/ -all_reactions +acid_anhydride_and_thiol_to_thioester
+
+
+Acid Anhydride to Azide or Cyanide
+----------------------------------
+python ../autoclickchem.py -reactants1 ./acid_anhydride/ -output_dir ./acid_anhydride_to_azide_output/ -all_reactions +acid_anhydride_to_azide
+python ../autoclickchem.py -reactants1 ./acid_anhydride/ -output_dir ./acid_anhydride_to_cyanide_output/ -all_reactions +acid_anhydride_to_cyanide
+
+
+(Isocyanate or Isothiocyanate) + Amine
+--------------------------------------
+python ../autoclickchem.py -reactants1 ./isocyanate/ -reactants2 ./amine/ -output_dir ./isocyanate_and_amine_to_urea_output/ -all_reactions +isocyanate_and_amine_to_urea
+python ../autoclickchem.py -reactants1 ./isothiocyanate/ -reactants2 ./amine/ -output_dir ./isothiocyanate_and_amine_to_thiourea_output/ -all_reactions +isothiocyanate_and_amine_to_thiourea
+
+
+(Isocyanate or Isothiocyanate) + (Alcohol or Thiol)
+---------------------------------------------------
+python ../autoclickchem.py -reactants1 ./isocyanate/ -reactants2 ./alcohol/ -output_dir ./isocyanate_and_alcohol_to_carbamate_output/ -all_reactions +isocyanate_and_alcohol_to_carbamate
+python ../autoclickchem.py -reactants1 ./isothiocyanate/ -reactants2 ./alcohol/ -output_dir ./isothiocyanate_and_alcohol_to_carbamothioate_output/ -all_reactions +isothiocyanate_and_alcohol_to_carbamothioate
+python ../autoclickchem.py -reactants1 ./isocyanate/ -reactants2 ./thiol/ -output_dir ./isocyanate_and_thiol_to_carbamothioate_output/ -all_reactions +isocyanate_and_thiol_to_carbamothioate
+python ../autoclickchem.py -reactants1 ./isothiocyanate/ -reactants2 ./thiol/ -output_dir ./isothiocyanate_and_thiol_to_carbamodithioate_output/ -all_reactions +isothiocyanate_and_thiol_to_carbamodithioate

@@ -1,0 +1,122 @@
+AutoClickChem is released under the GNU General Public License (see http://www.gnu.org/licenses/gpl.html).
+If you have any questions, comments, or suggestions, please don't hesitate to contact me,
+Jacob Durrant, at jdurrant [at] ucsd [dot] edu.
+
+If you use AutoClickChem in your work, please cite [REFERENCE HERE]
+
+
+== INSTALATION ==
+
+AutoClickChem is a Python script and so requires no compilation. One need only install Python, which can
+be obtained from http://www.python.org. Many Linux distributions include Python by default, as does the
+latest version of Mac OSX. AutoClickChem can be run thusly:
+
+/path/to/python/binary/python autoclickchem.py {COMMAND-LINE_PARAMETERS}
+
+AutoClickChem has been tested on Linux, Mac OSX, and Windows XP using Python 2.5.2, 2.6.1, and 2.6.5. We
+expect the program to work with other Python versions and on other operating systems as well.
+
+
+== TEST DATA ==
+
+Several example files are included in the ./examples/ directory. “alkyne.pdb” is a PDB file of a molecule 
+containing an alkyne chemical group, and “azide.pdb” is a PDB file of a molecule containing an azide 
+chemical group. These two chemical groups can react with each other according to the azide-alkyne Huisgen 
+cycloaddition reaction, the quintessential click-chemistry reaction. To use these examples files, run
+the following from the main AutoClickChem directory:
+
+/path/to/python/binary/python autoclickchem.py -reactants1 ./examples/azide.pdb -reactants2 
+    ./examples/alkyne.pdb -output_dir ./output/ -all_reactions +azide_and_alkyne_to_azole
+
+This will create a new directory, ./output/, containing two PDB files corresponding to the two possible
+products of the reaction.
+
+
+== GENERAL TUTORIAL ==
+
+AutoClickChem generates two lists of PDB files, called reactants1 and reactants2. The program tries to
+combine the compounds of the first list with the compounds of the second list using the reactions of click
+chemistry. To build these two lists, use the tags -reactants1 and -reactants2 from the command line.
+Optionally, you can also tell AutoClickChem where to save PDB files of the products using the -output_dir
+tag. For example,
+
+python autoclick.py -reactants1 ../azides/myazide.pdb -reactants2 ../alkynes/myalkyne.pdb -output_dir ./output/
+
+The -reactants1 and -reactants2 tags can also specify directories, in which case AutoClickChem will add all
+the PDB files in the specified directory to the respective list. For example,
+
+python autoclick.py -reactants1 ../azides/ -reactants2 ../alkynes/ -output_dir ./output/
+
+The program is not limited to one -reactants1 or -reactants2 tag. For example, the following is valid:
+
+python autoclick.py -reactants1 ../azides/myazide.pdb -reactants1 ../azides2/ -reactants2 ../alkynes/myalkyne.pdb
+    -reactants2 ../alkynes2/ -output_dir ./output/
+
+Some of the AutoClickChem reactions (e.g., alkene to epoxide) require only one type of reactant, not two. To
+access these reactions, use only the reactants1 tag. For example,
+
+python autoclick.py -reactants1 ../alkenes/ -output_dir ./my_epoxides/
+
+Note that, unlike the online version of AutoClickChem, the command-line version only accepts PDB files as input.
+We recommend using OpenBabel to convert your small-molecule models from other formats into the PDB format.
+
+If you would like to limit the number of pairs of compounds that are reacted together, the max_reactions tag can
+be used:
+
+python autoclick.py -reactants1 ../azides/ -reactants2 ../alkynes/ -output_dir ./output/ -max_reactions 10
+
+The following are special tags that refer to each of the AutoClickChem reactions:
+
+azide_and_alkyne_to_azole
+epoxide_alcohol_opening
+epoxide_thiol_opening
+chloroformate_and_amine_to_carbamate
+sulfonyl_azide_and_thio_acid
+carboxylate_and_alcohol_to_ester
+carboxylate_and_thiol_to_thioester
+acyl_halide_and_alcohol_to_ester
+acyl_halide_and_thiol_to_thioester
+ester_and_alcohol_to_ester
+ester_and_thiol_to_thioester
+acid_anhydride_and_alcohol_to_ester
+acid_anhydride_and_thiol_to_thioester
+carboxylate_and_amine_to_amide
+acyl_halide_and_amine_to_amide
+ester_and_amine_to_amide
+acid_anhydride_and_amine_to_amide
+isocyanate_and_amine_to_urea
+isothiocyanate_and_amine_to_thiourea
+isocyanate_and_alcohol_to_carbamate
+isothiocyanate_and_alcohol_to_carbamothioate
+isocyanate_and_thiol_to_carbamothioate
+isothiocyanate_and_thiol_to_carbamodithioate
+alkene_to_epoxide
+halide_to_cyanide
+alcohol_to_cyanide
+carboxylate_to_cyanide
+acyl_halide_to_cyanide
+acid_anhydride_to_cyanide
+halide_to_azide
+alcohol_to_azide
+carboxylate_to_azide
+acyl_halide_to_azide
+acid_anhydride_to_azide
+amine_to_azide
+amine_to_isocyanate
+amine_to_isothiocyanate
+azide_to_amine
+
+By default, AutoClickChem performs all reactions possible. Specific reactions can be turned on or off by 
+placing a + or -, respectively, before the appropriate tag. For example, if you want AutoClickChem to avoid
+opening epoxides, the following tags can be used:
+
+python autoclick.py -reactants1 ../azides/ -reactants2 ../alkynes/ -output_dir ./output/
+     -epoxide_alcohol_opening -epoxide_thiol_opening
+
+The tag "all_reactions" is also valid. If you'd like to perform only the azide_and_alkyne_to_azole reaction,
+for example, the following tags can be used:
+
+python autoclick.py -reactants1 ../azides/ -reactants2 ../alkynes/ -output_dir ./output/ -all_reactions
+     +azide_and_alkyne_to_azole
+
+I hope you enjoy using AutoClickChem!
